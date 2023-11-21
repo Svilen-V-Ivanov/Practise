@@ -1,5 +1,4 @@
-# TODO: FIX THE PROBLEMS WHEN LOOPING IS MORE THAN ONCE
-# TODO: REDUCE THE CODE LENGTH WITH FUNCTIONS
+# FIXED CODE AND GREATLY REDUCED LENGTH
 
 def is_inside(position, row, col):
     p_row, p_col = position
@@ -149,122 +148,76 @@ while True:
     else:
         player_row, player_col = player_position
         if direction == 'up':
-            count = 0
-            for i in range(player_row - 1, -1, -1):
-                if field[i][player_col] in 'DGC':
-                    collected_items[field[i][player_col]] += 1
-                field[i][player_col] = 'x'
-
+            start = player_row
+            for i in range(steps):
+                start -= 1
+                if start < 0:
+                    start = rows - 1
+                if field[start][player_col] in 'DGC':
+                    collected_items[field[start][player_col]] += 1
+                field[start][player_col] = 'x'
                 if collected_items == total_items:
-                    player_position = [i, player_col]
-                    is_completed = True
-                    break
-                count += 1
-
-            if is_completed:
-                break
-
-            x = rows - (1 + steps - count)
-            for j in range(rows - 1, x, -1):
-                if field[j][player_position[1]] in 'DGC':
-                    collected_items[field[j][player_col]] += 1
-                field[j][player_col] = 'x'
-
-                if collected_items == total_items:
-                    player_position = [j, player_col]
+                    player_position = [start, player_col]
                     is_completed = True
                     break
 
             if is_completed:
                 break
-            player_position = [(rows - (steps - count)), player_col]
+            player_position = [start, player_col]
 
         if direction == 'down':
-            count = 0
-            for i in range(player_row, rows):
-                if field[i][player_col] in 'DGC':
-                    collected_items[field[i][player_col]] += 1
-                field[i][player_col] = 'x'
-
+            start = player_row
+            for i in range(steps):
+                start += 1
+                if start > (rows - 1):
+                    start = 0
+                if field[start][player_col] in 'DGC':
+                    collected_items[field[start][player_col]] += 1
+                field[start][player_col] = 'x'
                 if collected_items == total_items:
-                    player_position = [i, player_col]
-                    is_completed = True
-                    break
-                count += 1
-
-            if is_completed:
-                break
-            for j in range(0, (steps - count)):
-                if field[j][player_col] in 'DGC':
-                    collected_items[field[j][player_col]] += 1
-                field[j][player_col] = 'x'
-
-                if collected_items == total_items:
-                    player_position = [j, player_col]
+                    player_position = [start, player_col]
                     is_completed = True
                     break
 
             if is_completed:
                 break
-            player_position = [(steps - count - 1), player_col]
+            player_position = [start, player_col]
 
         if direction == 'left':
-            count = 0
-            for i in range(player_col - 1, -1, -1):
-                if field[player_row][i] in 'DGC':
-                    collected_items[field[player_row][i]] += 1
-                field[player_row][i] = 'x'
-
+            start = player_col
+            for i in range(steps):
+                start -= 1
+                if start < 0:
+                    start = cols - 1
+                if field[player_row][start] in 'DGC':
+                    collected_items[field[player_row][start]] += 1
+                field[player_row][start] = 'x'
                 if collected_items == total_items:
-                    player_position = [player_row, i]
-                    is_completed = True
-                    break
-
-                if is_completed:
-                    break
-                count += 1
-            for j in range(cols - 1, (cols - (steps - count)), -1):
-                if field[player_row][j] in 'DGC':
-                    collected_items[field[player_row][j]] += 1
-                field[player_row][j] = 'x'
-
-                if collected_items == total_items:
-                    player_position = [player_row, j]
+                    player_position = [player_row, start]
                     is_completed = True
                     break
 
             if is_completed:
                 break
-            player_position = [player_row, (cols - (steps - count))]
+            player_position = [player_row, start]
 
         if direction == 'right':
-            count = 0
-            for i in range(player_col + 1, cols):
-                if field[player_row][i] in 'DGC':
-                    collected_items[field[player_row][i]] += 1
-                field[player_row][i] = 'x'
-
+            start = player_col
+            for i in range(steps):
+                start += 1
+                if start > cols - 1:
+                    start = 0
+                if field[player_row][start] in 'DGC':
+                    collected_items[field[player_row][start]] += 1
+                field[player_row][start] = 'x'
                 if collected_items == total_items:
-                    player_position = [player_row, i]
-                    is_completed = True
-                    break
-                count += 1
-
-            if is_completed:
-                break
-            for j in range(0, (steps - count - 1)):
-                if field[player_row][j] in 'DGC':
-                    collected_items[field[player_row][j]] += 1
-                field[player_row][j] = 'x'
-
-                if collected_items == total_items:
-                    player_position = [player_row, j]
+                    player_position = [player_row, start]
                     is_completed = True
                     break
 
             if is_completed:
                 break
-            player_position = [player_row, (steps - count - 1)]
+            player_position = [player_row, start]
 
 field[player_position[0]][player_position[1]] = 'Y'
 
