@@ -1,0 +1,9 @@
+.venv
+venv/
+.idea
+idea/
+main.py
+project/__pycache__/
+project_01/__pycache__/
+project_02/__pycache__/
+project_03/__pycache__/
