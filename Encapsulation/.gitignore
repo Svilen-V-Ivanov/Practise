@@ -2,4 +2,8 @@
 venv/
 main.py
 .idea
+project_01/__pycache__
+project_02/__pycache__
 project/__pycache__
+project/beverage/__pycache__
+project/food/__pycache__

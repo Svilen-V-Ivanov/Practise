@@ -1,4 +1,4 @@
-from project.worker import Worker
+from project_01.worker import Worker
 
 
 class Vet(Worker):
