@@ -1,5 +1,5 @@
-from project.customer import Customer
-from project.dvd import DVD
+from project_01.customer import Customer
+from project_01.dvd import DVD
 
 
 def find_object(id, list):

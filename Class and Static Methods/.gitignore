@@ -2,4 +2,5 @@ main.py
 venv/
 .idea
 idea/
+project_01/__pycache__
 project/__pycache__
