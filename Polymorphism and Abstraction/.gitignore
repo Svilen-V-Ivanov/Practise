@@ -2,3 +2,5 @@
 venv/
 main.py
 03_account.py
+project/__pycache__
+project/animals/__pycache__
