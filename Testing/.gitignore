@@ -1,0 +1,9 @@
+main.py
+venv/
+.idea/
+mammal/project/__pycache__
+mammal/test/__pycache__
+hero/project/__pycache__
+hero/test/__pycache__
+student/project/__pycache__
+student/tests/__pycache__
