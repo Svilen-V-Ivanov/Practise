@@ -1,0 +1,5 @@
+main.py
+venv/
+project/supply/__pycache__
+project/__pycache__
+.idea/
